@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Methods Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 id="heading">DOM Methods Example</h2>
+
+    <p id="demo">This is a paragraph.</p>
+
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="addNewElement()">Add New Element</button>
+    <button onclick="modifyStyle()">Modify Style</button>
+
+    <script>
+        function changeText() {
+            // Change the text content of an element
+            var paragraph = document.getElementById("demo");
+            paragraph.innerHTML = "Text has been changed!";
+        }
+
+        function addNewElement() {
+            // Create a new paragraph element and append it to the body
+            var newParagraph = document.createElement("p");
+            newParagraph.innerHTML = "This is a new paragraph.";
+            document.body.appendChild(newParagraph);
+        }
+
+        function modifyStyle() {
+            // Modify the style of an element
+            var heading = document.getElementById("heading");
+            heading.classList.add("highlight");
+        }
+    </script>
+
+</body>
+
+</html>

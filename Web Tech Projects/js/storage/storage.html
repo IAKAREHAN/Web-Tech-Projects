@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage and Session Storage Example</title>
+</head>
+
+<body>
+
+    <h2>Local Storage and Session Storage Example</h2>
+
+    <p>Enter a value and click the buttons to store and retrieve data:</p>
+
+    <input type="text" id="dataInput" placeholder="Enter data">
+    <button onclick="storeDataLocally()">Store in Local Storage</button>
+    <button onclick="retrieveDataLocally()">Retrieve from Local Storage</button>
+
+    <button onclick="storeDataSession()">Store in Session Storage</button>
+    <button onclick="retrieveDataSession()">Retrieve from Session Storage</button>
+
+    <p>Stored Data:</p>
+    <div id="storedData"></div>
+
+    <script>
+        function storeDataLocally() {
+            var data = document.getElementById("dataInput").value;
+            localStorage.setItem("myData", data);
+            updateStoredData();
+        }
+
+        function retrieveDataLocally() {
+            var data = localStorage.getItem("myData");
+            alert("Data from Local Storage: " + data);
+        }
+
+        function storeDataSession() {
+            var data = document.getElementById("dataInput").value;
+            sessionStorage.setItem("myData", data);
+            updateStoredData();
+        }
+
+        function retrieveDataSession() {
+            var data = sessionStorage.getItem("myData");
+            alert("Data from Session Storage: " + data);
+        }
+
+        function updateStoredData() {
+            var localData = localStorage.getItem("myData") || "No data stored in Local Storage.";
+            var sessionData = sessionStorage.getItem("myData") || "No data stored in Session Storage.";
+
+            document.getElementById("storedData").innerHTML = "<strong>Local Storage:</strong> " + localData + "<br><strong>Session Storage:</strong> " + sessionData;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Graphics with Canvas</title>
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
+
+    <script>
+
+        var canvas = document.getElementById("myCanvas");
+
+        if (canvas.getContext) {
+
+            var ctx = canvas.getContext("2d");
+
+
+            ctx.fillStyle = "blue";
+            ctx.fillRect(50, 50, 100, 50);
+
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.arc(300, 100, 30, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "green";
+            ctx.fillText("Hello, Canvas!", 150, 180); // text, x, y
+        } else {
+
+            document.getElementById("myCanvas").innerHTML = "Canvas is not supported in your browser.";
+        }
+    </script>
+
+</body>
+
+</html>

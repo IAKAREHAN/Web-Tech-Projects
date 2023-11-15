@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events with JavaScript</title>
+    <style>
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>HTML Events with JavaScript</h2>
+
+    <button onclick="showAlert()">Click Me</button>
+
+    <input type="text" onfocus="highlightInput()" onblur="unhighlightInput()" placeholder="Type here">
+
+    <p id="mousemoveInfo">Move your mouse over this paragraph.</p>
+
+    <script>
+        // Function to show an alert on button click
+        function showAlert() {
+            alert("Button Clicked!");
+        }
+
+        // Functions to highlight and unhighlight input field on focus and blur
+        function highlightInput() {
+            document.querySelector("input").style.backgroundColor = "lightyellow";
+        }
+
+        function unhighlightInput() {
+            document.querySelector("input").style.backgroundColor = "white";
+        }
+
+        // Event listener for mousemove event on a paragraph
+        document.getElementById("mousemoveInfo").addEventListener("mousemove", function (event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            document.getElementById("mousemoveInfo").textContent = "Mouse coordinates: (" + x + ", " + y + ")";
+        });
+    </script>
+
+</body>
+
+</html>
